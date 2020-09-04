@@ -1,6 +1,6 @@
 {
   "name": "bolerplate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -15,10 +15,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-stage"
+      "pre-commit": "lint-staged"
     }
   },
-  "lint-stage": {
+  "lint-staged": {
     "src/**/*": [
       "yarn lint --fix",
       "yarn test --findRelatedTests --bail"
