@@ -14,27 +14,41 @@ module.exports = function (plop) {
         message: 'Input name please'
       }
     ],
-    actions: [
-      {
+    actions: function (data) {
+      const actions = [
+        {
+          type: 'add',
+          path: '../src/{{path}}/{{pascalCase name}}/stories.tsx',
+          templateFile: 'templates/stories.tsx.hbs'
+        },
+        {
+          type: 'add',
+          path: '../src/{{path}}/{{pascalCase name}}/styles.ts',
+          templateFile: 'templates/styles.ts.hbs'
+        },
+        {
+          type: 'add',
+          path: '../src/{{path}}/{{pascalCase name}}/test.tsx',
+          templateFile: 'templates/test.tsx.hbs'
+        }
+      ]
+
+      if (data.path === 'pages') {
+        actions.push({
+          type: 'add',
+          path: '../src/{{path}}/{{pascalCase name}}/index.tsx',
+          templateFile: 'templates/index-pages.tsx.hbs'
+        })
+
+        return actions
+      }
+
+      actions.push({
         type: 'add',
         path: '../src/{{path}}/{{pascalCase name}}/index.tsx',
         templateFile: 'templates/index.tsx.hbs'
-      },
-      {
-        type: 'add',
-        path: '../src/{{path}}/{{pascalCase name}}/stories.tsx',
-        templateFile: 'templates/stories.tsx.hbs'
-      },
-      {
-        type: 'add',
-        path: '../src/{{path}}/{{pascalCase name}}/styles.ts',
-        templateFile: 'templates/styles.ts.hbs'
-      },
-      {
-        type: 'add',
-        path: '../src/{{path}}/{{pascalCase name}}/test.tsx',
-        templateFile: 'templates/test.tsx.hbs'
-      }
-    ]
+      })
+      return actions
+    }
   })
 }
