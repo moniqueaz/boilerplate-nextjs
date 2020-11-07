@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import Main from '.'
 
 export default {
-  title: 'Main',
+  title: 'Exemplo/Main',
   component: Main,
   args: {
     title: 'Default',
