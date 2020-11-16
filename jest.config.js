@@ -6,16 +6,16 @@ module.exports = {
     'src/**/*.ts(x)?',
     '!src/**/stories.tsx',
     '!src/pages/**/*.tsx',
-    '!src/styles/**/*.ts'
+    '!src/styles/**/*.ts',
+    '!**/coverage/**'
   ],
-  jest: {
-    coverageThreshold: {
-      global: {
-        branches: 80,
-        functions: 80,
-        lines: 80,
-        statements: 80
-      }
+  coverageReporters: ['json', 'lcov', 'text', 'clover', 'html'],
+  coverageThreshold: {
+    'src/**/**': {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80
     }
   },
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
